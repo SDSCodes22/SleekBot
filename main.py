@@ -10,7 +10,7 @@ TOKEN = dotenv_values(".env")["TOKEN"]
 # Initialize ChatGPT
 # The project is the Google Cloud Project Name
 print("Initializing Vertex AI!")
-vertexai.init(project="lumos-418020", location="europe-west2")
+vertexai.init(project="sleek-bot", location="europe-west2")
 model = GenerativeModel("gemini-1.0-pro")
 print("...\tDone!")
 FIXED_PROMPT = """
