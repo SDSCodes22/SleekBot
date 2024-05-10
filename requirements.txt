@@ -1,0 +1,4 @@
+py-cord==2.5.0
+google_cloud_aiplatform==1.48.0
+python-dotenv==1.0.1
+vertexai==1.48.0

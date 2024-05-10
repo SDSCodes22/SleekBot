@@ -1,6 +1,5 @@
 import discord
 from dotenv import dotenv_values
-from revChatGPT.Unofficial import Chatbot
 import json
 import vertexai
 from vertexai.generative_models import Part, Content, GenerativeModel
