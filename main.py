@@ -4,6 +4,7 @@ import json
 import vertexai
 from vertexai.generative_models import Part, Content, GenerativeModel
 from os import path
+import random
 
 # Read token from local .env file
 TOKEN = dotenv_values(".env")["TOKEN"]
@@ -83,6 +84,22 @@ async def on_message(message):
         # Now send the message
         await webhook.send(content=final, username=name, avatar_url=avatar_url)
         await message.delete()
+
+
+@bot.slash_command(guild_ids=[1212810116647362640])
+async def rizz(ctx, private=True):
+    # Load all rizz lines
+    rizz_lines = []
+    file_path = path.join(path.dirname(__file__), "rizz_lines.txt")
+    with open(file_path, mode="r") as rizz_file:
+        rizz_lines = rizz_file.readlines()
+    # Send one to the user
+    await ctx.send_response(content=random.choice(rizz_lines), ephemeral=private)
+
+
+@bot.slash_command(guild_ids=[1212810116647362640])
+async def ping(ctx):
+    await ctx.send_response(content="pong!", ephemeral=True)
 
 
 bot.run(TOKEN)
